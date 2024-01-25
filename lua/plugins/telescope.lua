@@ -9,8 +9,8 @@ return {
     require("telescope").setup({
       defaults = {
         mappings = {
-          i = {
-            ["<C-bs>"] = require("telescope.actions").delete_buffer,
+          n = {
+            ["dd"] = require("telescope.actions").delete_buffer,
           },
         },
       },
