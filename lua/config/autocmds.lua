@@ -4,6 +4,15 @@
 vim.api.nvim_create_autocmd({ "FileType" }, {
   callback = function()
     vim.g.autoformat = false
+    require("telescope").setup({
+      defaults = {
+        mappings = {
+          n = {
+            ["dd"] = require("telescope.actions").delete_buffer,
+          },
+        },
+      },
+    })
   end,
 })
 
