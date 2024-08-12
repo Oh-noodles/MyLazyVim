@@ -1,22 +1,31 @@
 return {
   {
-    "catppuccin/nvim",
+    "scottmckendry/cyberdream.nvim",
     lazy = false,
-    name = "catppuccin",
     priority = 1000,
-    require("catppuccin").setup({
-      custom_highlights = function(colors)
-        return {
-          Comment = { fg = "#cc8800" },
-        }
-      end,
-    }),
+    config = function()
+      require("cyberdream").setup({
+        -- Recommended - see "Configuring" below for more config options
+        transparent = true,
+        italic_comments = true,
+        hide_fillchars = true,
+        borderless_telescope = true,
+        terminal_colors = true,
+        theme = {
+          highlights = {
+            LineNr = { fg = "gray" },
+            CursorLineNr = { fg = "white" },
+            Comment = { fg = "#9e9e9e" },
+          },
+        },
+      })
+      vim.cmd("colorscheme cyberdream") -- set the colorscheme
+    end,
   },
-  { "miikanissi/modus-themes.nvim", priority = 1000, name = "modus" },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "modus",
+      colorscheme = "cyberdream",
     },
   },
 }
